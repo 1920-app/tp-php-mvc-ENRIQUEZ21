@@ -20,14 +20,14 @@ lorsqu'une fonctionnalité a été implémentée.
 - Que fait-il ?
 - Que pensez-vous de ce code en terme de lisibilité et de facilité de modification ?
 
-### Question 2
+### Question 2
 
 - Copiez le code d'accès à la base de données dans un fichier appelé `connexion.php` et incluez-le dans votre fichier `index.php` via un `require`. Ce fichier `connexion.php` devra être dans un répertoire `models`.
 - Repérez dans le fichier `index.php` les bouts de code qui permettent d'écrire des requêtes SQL. Remplacez ces bouts de code par des fonctions et appels de fonctions.
 - Déplacez ensuite ces fonctions dans un autre fichier intitulé `fonctions.php` que vous appellerez dans le fichier `index.php` via un `require`. Ce fichier devra être dans un répertoire `models`.
 - Testez votre code.
 
-### Question 3
+### Question 3
 
 - Repérez dans le fichier `index.php` les bouts de code qui permettent d'écrire du code HTML.
 - Déplacez le code HTML dans deux fichiers `edit.php` pour l'ajout ou la modification d'un utilisateur et `list.php` pour l'affichage des utilisateurs. Ces deux fichiers devront être dans une repértoire appelé `views`.
