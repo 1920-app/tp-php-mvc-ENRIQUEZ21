@@ -11,6 +11,7 @@
 
 <?php
 require 'models/connexion.php';
+require 'models/fonctions.php';
 
 
 if(isset($_GET["action"]) && $_GET["action"]=="save") {
@@ -53,15 +54,14 @@ if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="mo
 
 <?php	
 } else { 
-	$reponse = $db->prepare("select * from users ");
-		$reponse->execute();
+	selectUsers($db);
 
 
 ?>
 
 <table border=1px>
 	<?php
-	while($user = $reponse->fetch()) {
+	while($user = selectUsers($db)->fetch()) {
 	?>				
 	<tr>
 		<td>
