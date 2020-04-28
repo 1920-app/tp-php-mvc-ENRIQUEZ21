@@ -10,7 +10,7 @@
 
 
 <?php
-$db = new PDO("mysql:host=localhost;dbname=app_exemple", "root", "");
+require 'models/connexion.php';
 
 
 if(isset($_GET["action"]) && $_GET["action"]=="save") {
