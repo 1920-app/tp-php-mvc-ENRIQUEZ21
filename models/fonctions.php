@@ -10,7 +10,7 @@ function requeteAjout($db) {
 }
 
 
-function sauverRequetes($db) {
+function executerRequetes($db) {
     if(isset($_GET["action"]) && $_GET["action"]=="save") {
         if(isset($_GET["id"]) &&  $_GET["id"]!=null) {
             requeteModifications($db);

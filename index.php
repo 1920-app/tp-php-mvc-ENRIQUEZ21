@@ -15,7 +15,7 @@ require 'models/fonctions.php';
 
 
 
-sauverRequetes($db);
+executerRequetes($db);
 
 if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="modifier")) {
 	$nom = "";
