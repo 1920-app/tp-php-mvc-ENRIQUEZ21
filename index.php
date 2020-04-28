@@ -32,8 +32,8 @@ if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="mo
 	$prenom = "";
 	$id = "";
 	if($_GET["action"]=="modifier") {
-		$reponse = $db->prepare("select * from users where id=".$_GET["id"]);
-		$reponse->execute();
+        $reponse = $db->prepare("select * from users where id=".$_GET["id"]);
+        $reponse->execute();
 
     while($user = $reponse->fetch()){
 		$nom = $user["nom"];		
@@ -53,15 +53,16 @@ if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="mo
 	</form>
 
 <?php	
-} else { 
-	selectUsers($db)->execute();
+} else {
+    $reponse = $db->prepare("select * from users ");
+    $reponse->execute();
 
 
 ?>
 
 <table border=1px>
 	<?php
-	while($user = selectUsers($db)->fetch()) {
+	while($user = $reponse->fetch()) {
 	?>				
 	<tr>
 		<td>
