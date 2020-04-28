@@ -54,7 +54,7 @@ if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="mo
 
 <?php	
 } else { 
-	selectUsers($db);
+	selectUsers($db)->execute();
 
 
 ?>
