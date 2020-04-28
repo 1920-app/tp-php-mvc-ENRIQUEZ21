@@ -10,7 +10,7 @@
 
 
 <?php
-// $db = new PDO("mysql:host=localhost;dbname=app_exemple", "root", "");
+$db = new PDO("mysql:host=localhost;dbname=app_exemple", "root", "");
 
 
 if(isset($_GET["action"]) && $_GET["action"]=="save") {
