@@ -17,10 +17,11 @@ require 'models/fonctions.php';
 
 executerRequetes($db);
 
+
 if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="modifier")) {
-	$nom = "";
-	$prenom = "";
-	$id = "";
+    $nom = "";
+    $prenom = "";
+    $id = "";
 	if($_GET["action"]=="modifier") {
         $reponse = $db->prepare("select * from users where id=".$_GET["id"]);
         $reponse->execute();
