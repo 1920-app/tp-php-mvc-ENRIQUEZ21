@@ -1,6 +1,5 @@
 <?php
 
-
 $nom = "";
 $prenom = "";
 $id = "";
@@ -14,8 +13,6 @@ if($_GET["action"]=="modifier") {
         $id = $user["id"];
     }
 }
-
-
 ?>
 
 <form action="index.php" method="get">

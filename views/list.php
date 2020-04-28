@@ -1,6 +1,5 @@
 <?php
 
-
 $reponse = $db->prepare("select * from users ");
 $reponse->execute();
 
