@@ -15,7 +15,13 @@ require 'models/fonctions.php';
 
 
 
-executerRequetes($db);
+if(isset($_GET["action"]) && $_GET["action"]=="save") {
+    if(isset($_GET["id"]) &&  $_GET["id"]!=null) {
+        requeteModifications($db);
+    } else {
+        requeteAjout($db);
+    }
+}
 
 
 if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="modifier")) {
