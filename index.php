@@ -17,18 +17,66 @@ require 'models/fonctions.php';
 
 if(isset($_GET["action"]) && $_GET["action"]=="save") {
     if(isset($_GET["id"]) &&  $_GET["id"]!=null) {
-        requeteModifications($db);
+        requeteModifications($db, $_GET["nom"], $_GET["prenom"], $_GET["id"]);
     } else {
-        requeteAjout($db);
+        requeteAjout($db, $_GET["nom"], $_GET["prenom"]);
     }
 }
 
 
 if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="modifier")) {
-    include 'views/edit.php';
+    $nom = "";
+    $prenom = "";
+    $id = "";
+    if($_GET["action"]=="modifier") {
+        $reponse = selectUser($db, $_GET["id"]);
+
+        while($user = $reponse->fetch()){
+            $nom = $user["nom"];
+            $prenom = $user["prenom"];
+            $id = $user["id"];
+        }
+    }
+    ?>
+
+    <form action="index.php" method="get">
+        Nom : <input type="text" name="nom" value="<?php echo $nom; ?>"/>
+        Prenom : <input type="text" name="prenom" value="<?php echo $prenom; ?>"/>
+        <input type="hidden" name="id" value="<?php echo $id; ?>"/>
+        <input type="hidden" name="action" value="save"/>
+        <input type="submit"/>
+    </form>
+<?php
 } else {
-    include 'views/list.php';
- } 	?>
+$reponse = selectAllUsers($db);
+
+
+?>
+
+<table border=1px>
+    <?php
+    while($user = $reponse->fetch()) {
+        ?>
+        <tr>
+            <td>
+                <?php echo $user["nom"]; ?>
+            </td>
+            <td>
+                <?php echo $user["prenom"]; ?>
+            </td>
+            <td>
+                <?php echo '<a href="index.php?action=modifier&id='.$user["id"].'">modifier</a>' ?>
+            </td>
+        </tr>
+    <?php } ?>
+
+</table>
+
+<a href="index.php?action=ajouter">ajouter</a>
+
+<?php
+} 	?>
+
 	</body>
 </html>
 
