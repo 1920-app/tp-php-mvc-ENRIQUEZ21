@@ -37,42 +37,19 @@ if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="mo
             $id = $user["id"];
         }
     }
+
+    include 'views/edit.php';
     ?>
 
-    <form action="index.php" method="get">
-        Nom : <input type="text" name="nom" value="<?php echo $nom; ?>"/>
-        Prenom : <input type="text" name="prenom" value="<?php echo $prenom; ?>"/>
-        <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-        <input type="hidden" name="action" value="save"/>
-        <input type="submit"/>
-    </form>
+
 <?php
 } else {
 $reponse = selectAllUsers($db);
-
+include 'views/list.php';
 
 ?>
 
-<table border=1px>
-    <?php
-    while($user = $reponse->fetch()) {
-        ?>
-        <tr>
-            <td>
-                <?php echo $user["nom"]; ?>
-            </td>
-            <td>
-                <?php echo $user["prenom"]; ?>
-            </td>
-            <td>
-                <?php echo '<a href="index.php?action=modifier&id='.$user["id"].'">modifier</a>' ?>
-            </td>
-        </tr>
-    <?php } ?>
 
-</table>
-
-<a href="index.php?action=ajouter">ajouter</a>
 
 <?php
 } 	?>
