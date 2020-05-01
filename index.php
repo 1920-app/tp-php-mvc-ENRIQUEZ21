@@ -1,12 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>Liste des utilisateurs</title>
-	</head>
-	<body>
 
-
-<h1>Exemple simple de site en PHP</h1>
 
 
 <?php
@@ -38,14 +30,16 @@ if(isset($_GET["action"]) && ($_GET["action"]=="ajouter" || $_GET["action"]=="mo
         }
     }
 
-    include 'views/edit.php';
+    $target = 'views/user/edit.php';
+    include 'views/default.php';
     ?>
 
 
 <?php
 } else {
 $reponse = selectAllUsers($db);
-include 'views/list.php';
+$target = 'views/user/list.php';
+include 'views/default.php';
 
 ?>
 
@@ -53,8 +47,5 @@ include 'views/list.php';
 
 <?php
 } 	?>
-
-	</body>
-</html>
 
 
